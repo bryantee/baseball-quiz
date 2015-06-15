@@ -26,7 +26,8 @@ body {
 section.question-box,
 section.diamond-box {
 	display: inline-block;
-	border: 1px solid brown;
+	/*-- TESTING BORDER 
+	border: 1px solid brown; --*/
 	vertical-align: top;
 	padding: 15px;
 	margin: 0 20px;
@@ -44,4 +45,20 @@ section.diamond-box {
 
 .answers > li {
 	margin-top: 1.5em;
+}
+
+button {
+	font-family: 'Press Start 2P', cursive;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 3px 3px 4px 2.5px #749E4D;
+	margin-top: 2em;
+}
+
+button:hover {
+	background-color: #626262;
+}
+
+button:focus {
+	outline: none;
 }
