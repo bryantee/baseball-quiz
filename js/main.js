@@ -38,11 +38,11 @@ var Question = function (questionNumber, question, answer1, answer2, answer3, an
 // Instantiated objects
 
 var question1 = new Question(1, 'Who has played the most consecutive games of baseball?', 'Cal Ripken, Jr.', 'Barry Bonds', 'Lou Gehrig', 'Ken Griffey', 1);
-var question2 = new Question(2, 'Example Question', 'Wrong Answer', 'Wrong Answer', 'Wrong Answer', 'Maybe...', 4);
-var question3 = new Question(3, 'Example Question', 'Wrong Answer', 'Wrong Answer', 'Wrong Answer', 'Correct Answer', 4);
-var question4 = new Question(4, 'Example Question', 'Wrong Answer', 'Wrong Answer', 'Wrong Answer', 'Correct Answer', 4);
-var question5 = new Question(5, 'Example Question', 'Wrong Answer', 'Wrong Answer', 'Wrong Answer', 'Correct Answer', 4);
-var question6 = new Question(6, 'Example Question', 'Wrong Answer', 'Wrong Answer', 'Wrong Answer', 'Correct Answer', 4);
+var question2 = new Question(2, 'What is season record for most stolen bases?', '165', '130', '122', '95', 2);
+var question3 = new Question(3, 'Which team has NOT won a World Series', 'Pittsburgh Pirates', 'Baltimore Orioles', 'Texas Rangers', 'LA Angels', 3);
+var question4 = new Question(4, 'Who is the only player to win 3 consecutive World Series on 3 different teams?', 'Babe Ruth', 'Herb Pennock', 'Eddie Collins', 'Don Baylor', 4);
+var question5 = new Question(5, 'Who was the first batter to win a triple crown?', 'Ty Cobb', 'Paul Hines', 'Tip O\'Neil', 'Roger Hornsby', 2);
+var question6 = new Question(6, 'What was the first team mascot?', 'Paws', 'Slider', 'Phanatic', 'Mr. Met', 4);
 
 var questionsArray = [question1, question2, question3, question4, question5, question6];
 
@@ -76,9 +76,6 @@ function evaluateAnswer (answer) {
 	}
 };
 
-function nextQuestion () {
-
-};
 
 function updateBases () {
 	var image = $('.diamond-box img');
