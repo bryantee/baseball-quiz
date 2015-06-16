@@ -10,6 +10,9 @@ $(document).ready(function() {
 		checkWinOrLose();
 	});
 
+	$('.new-game').on('click', function() {
+		newGame();
+	});
 
 
 }); // End Ready
@@ -39,8 +42,8 @@ var Question = function (questionNumber, question, answer1, answer2, answer3, an
 
 // Instantiated objects
 
-var question1 = new Question(1, 'Who has played the most consecutive games of baseball?', 'Cal Ripken, Jr.', 'Barry Bonds', 'Lou Gehrig', 'Ken Griffey', 1, 'Cal play in 2,632 consecutive games!');
-var question2 = new Question(2, 'What is season record for most stolen bases?', '165', '130', '122', '95', 2, 'Rickey Henderson did it in 1982.');
+var question1 = new Question(1, 'Who has played the most consecutive games of baseball?', 'Cal Ripken, Jr.', 'Barry Bonds', 'Lou Gehrig', 'Ken Griffey', 1, 'Cal played in 2,632 consecutive games!');
+var question2 = new Question(2, 'What is the single season record for most stolen bases?', '165', '130', '122', '95', 2, 'Rickey Henderson did it in 1982.');
 var question3 = new Question(3, 'Which team has NOT won a World Series', 'Pittsburgh Pirates', 'Baltimore Orioles', 'Texas Rangers', 'LA Angels', 3, 'The Yankees have won 27 WS.');
 var question4 = new Question(4, 'Who is the only player to win 3 consecutive World Series on 3 different teams?', 'Babe Ruth', 'Herb Pennock', 'Eddie Collins', 'Don Baylor', 4, 'Don Baylor won with Red Sox (\'87), Twins and Athletics');
 var question5 = new Question(5, 'Who was the first batter to win a triple crown?', 'Ty Cobb', 'Paul Hines', 'Tip O\'Neil', 'Roger Hornsby', 2, 'In 1878 Paul Hines batted .358, hit 4 HRs and had 50 RBIs.');
@@ -125,11 +128,18 @@ function updateQuestion () {
 function checkWinOrLose () {
 	if (hits == 4) {
 		console.log('WIN!');
-		$('.header').empty().append('<h1>You Win the Game!</h1>');
+		$('.header').empty().append('<h1>You Win the Game!</h1> <span><button class="new-game">New Game</button>');
 	} else if (outs == 3) {
 		console.log('Inning Over!');
-		$('.header').empty().append('<h1>Inning Over! You Lose...</h1>');
+		$('.header').empty().append('<h1>Inning Over! You Lose...</h1> <span><button class="new-game">New Game</button>');
 	} else {
 		console.log('Keep Going');
 	}
-}
+};
+
+function newGame () {
+	hits = 0;
+	outs = 0;
+	questionCount = 0;
+	updateBases();
+};
