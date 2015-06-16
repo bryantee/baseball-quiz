@@ -54,6 +54,8 @@ var questionsArray = [question1, question2, question3, question4, question5, que
 // Functions
 
 function evaluateAnswer (answer) {
+	// evaluates whether a submitted answer is correct
+	// increments hits or outs accordingly
 	var answer = $("input[type='radio']:checked").val();
 	if (answer == questionsArray[questionCount].correctAnswer) {
 		hits++;
@@ -76,6 +78,8 @@ function evaluateAnswer (answer) {
 
 
 function updateBases () {
+	// changes out the images of the bases to the correct case
+	// based on # of hits
 	var image = $('.diamond-box img');
 	switch(hits) {
 		case 1:
@@ -126,6 +130,7 @@ function updateQuestion () {
 };
 
 function checkWinOrLose () {
+	// self explanatory 
 	if (hits == 4) {
 		console.log('WIN!');
 		$('.header').empty().append('<h1>You Win the Game!</h1> <span><button class="new-game">New Game</button>');
@@ -138,6 +143,7 @@ function checkWinOrLose () {
 };
 
 function newGame () {
+	// resets game, not working.
 	hits = 0;
 	outs = 0;
 	questionCount = 0;
