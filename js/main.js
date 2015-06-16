@@ -6,6 +6,7 @@ $(document).ready(function() {
 		evaluateAnswer();
 		updateBases();
 		questionCount++;
+		updateQuestion();
 	});
 
 
@@ -36,7 +37,7 @@ var Question = function (questionNumber, question, answer1, answer2, answer3, an
 
 // Instantiated objects
 
-var question1 = new Question(1, 'Who has played the most consecutive games of baseball?', 'Cal Ripken, Jr.', 'Barry Bonds', 'Lou Gehrig', 'Ken Griffey', 4);
+var question1 = new Question(1, 'Who has played the most consecutive games of baseball?', 'Cal Ripken, Jr.', 'Barry Bonds', 'Lou Gehrig', 'Ken Griffey', 1);
 var question2 = new Question(2, 'Example Question', 'Wrong Answer', 'Wrong Answer', 'Wrong Answer', 'Maybe...', 4);
 var question3 = new Question(3, 'Example Question', 'Wrong Answer', 'Wrong Answer', 'Wrong Answer', 'Correct Answer', 4);
 var question4 = new Question(4, 'Example Question', 'Wrong Answer', 'Wrong Answer', 'Wrong Answer', 'Correct Answer', 4);
@@ -48,7 +49,7 @@ var questionsArray = [question1, question2, question3, question4, question5, que
 // Functions
 
 function evaluateAnswer (answer) {
-	//var answer = $("input[type='radio']:checked").val();
+	var answer = $("input[type='radio']:checked").val();
 	if (answer == questionsArray[questionCount].correctAnswer) {
 		hits++;
 		$('.hits').empty().append(hits);

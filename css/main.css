@@ -36,13 +36,13 @@ section.diamond-box {
 	/*-- TESTING BORDER 
 	border: 1px solid brown; --*/
 	vertical-align: top;
-	padding: 15px 40px;
+	padding: 15px 20px;
 	margin: 0 20px;
 }
 
 section.question-box {
 	text-align: left;
-	max-width: 600px;
+	width: 375px;
 }
 
 .question-count {
@@ -53,6 +53,7 @@ section.question-box {
 	height: 35px;
 	border: solid black 1px;
 	background-color: black;
+	margin-left: -50px;
 }
 
 .answers > li {
