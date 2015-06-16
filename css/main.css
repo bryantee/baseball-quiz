@@ -7,7 +7,7 @@ body {
 }
 
 .content {
-	width: 1000px;
+	width: 1200px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -38,6 +38,11 @@ section.diamond-box {
 	vertical-align: top;
 	padding: 15px 40px;
 	margin: 0 20px;
+}
+
+section.question-box {
+	text-align: left;
+	max-width: 600px;
 }
 
 .question-count {
