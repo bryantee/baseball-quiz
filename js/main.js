@@ -10,11 +10,6 @@ $(document).ready(function() {
 		checkWinOrLose();
 	});
 
-	$('.new-game').on('click', function() {
-		newGame();
-	});
-
-
 }); // End Ready
 
 ////////////////////////////////////
@@ -65,7 +60,7 @@ function evaluateAnswer (answer) {
 			console.log("Correct!");
 			console.log("current hits: " + hits);
 			} //end debug
-		
+
 	} else {
 		outs++;
 		$('.outs').empty().append(outs);
@@ -88,7 +83,7 @@ function updateBases () {
 		case 2:
 			image.attr("src", "images/2hit.png");
 			break;
-		case 3: 
+		case 3:
 			image.attr("src", "images/3hit.png");
 			break;
 		case 4:
@@ -108,7 +103,7 @@ function updateQuestion () {
 	var label3 = $('#label3');
 	var label4 = $('#label4');
 	var qmsg = $('.question');
-	var qcount = $('.question-count'); 
+	var qcount = $('.question-count');
 	var factoid = $('.fact');
 
 	// append count
@@ -130,13 +125,21 @@ function updateQuestion () {
 };
 
 function checkWinOrLose () {
-	// self explanatory 
+	// self explanatory
 	if (hits == 4) {
 		console.log('WIN!');
 		$('.header').empty().append('<h1>You Win the Game!</h1> <span><button class="new-game">New Game</button>');
+		$('.new-game').on('click', function() {
+			console.log('New game button clicked') //sanity check
+			newGame();
+		});
 	} else if (outs == 3) {
 		console.log('Inning Over!');
 		$('.header').empty().append('<h1>Inning Over! You Lose...</h1> <span><button class="new-game">New Game</button>');
+		$('.new-game').on('click', function() {
+			console.log('New game button clicked') //sanity check
+			newGame();
+		});
 	} else {
 		console.log('Keep Going');
 	}
@@ -144,8 +147,13 @@ function checkWinOrLose () {
 
 function newGame () {
 	// resets game, not working.
+	console.log('function newGame called...')
 	hits = 0;
 	outs = 0;
 	questionCount = 0;
+	updateQuestion();
 	updateBases();
+	$('.header').empty().append('<h1>Play Ball!</h1>')
+	$('.hits').empty().append('0');
+	$('.outs').empty().append('0');
 };
