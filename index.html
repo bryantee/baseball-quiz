@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Quiz Time</title>
 	<link href='http://fonts.googleapis.com/css?family=Press+Start+2P|Bangers' rel='stylesheet' type='text/css'>
 	<link href='css/main.css' rel='stylesheet' type='text/css'>
@@ -15,17 +16,21 @@
 
 <div class="content main">
 	<section class="question-box">
-		<span class="question-count">1</span>
-		<span class="question">Test Questions...</span>
+		<div class="question-container">
+			<span class="question-count">1</span>
+			<span class="question">Test Questions...</span>
+		</div>
 		<form>
 			<ul class="answers">
-				<li><input id="answer1" name="answer" type="radio" value="1" /><label id="label1" for="answer1">Test answer</label></li>
-				<li><input id="answer2" name="answer" type="radio" value="2" /><label id="label2" for="answer2">Test answer</label></li>
-				<li><input id="answer3" name="answer" type="radio" value="3" /><label id="label3" for="answer3">Test answer</label></li>
-				<li><input id="answer4" name="answer" type="radio" value="4" /><label id="label4" for="answer4">Test answer</label></li>
+				<li><input class="radio" id="answer1" name="answer" type="radio" value="1" /><label class="radio" id="label1" for="answer1">Test answer</label></li>
+				<li><input class="radio" id="answer2" name="answer" type="radio" value="2" /><label class="radio" id="label2" for="answer2">Test answer</label></li>
+				<li><input class="radio" id="answer3" name="answer" type="radio" value="3" /><label class="radio" id="label3" for="answer3">Test answer</label></li>
+				<li><input class="radio" id="answer4" name="answer" type="radio" value="4" /><label class="radio" id="label4" for="answer4">Test answer</label></li>
 			</ul>
 		</form>
-		<button type="button">Swing!</button>
+		<div class="swing">
+			Swing!
+		</div>
 	</section>
 
 	<section class="diamond-box">

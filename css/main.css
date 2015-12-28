@@ -7,9 +7,10 @@ body {
 }
 
 .content {
-	width: 1200px;
+	width: 100%;
 	margin: 0 auto;
 	text-align: center;
+	font-size: 0.75em;
 }
 
 .header {
@@ -18,47 +19,88 @@ body {
 	padding: 15px 0;
 	background-color: #749E4D;
 	color: white;
-	font-size: 1.5em;
+	font-size: 1.2em;
 }
 
 .fact {
 	text-align: center;
 	padding: 25px;
+	font-size: .85em;
 }
 
 .main {
-	margin-top: 25px;
+	width: 100%;
+	display: -webkit-flex;
+	flex-wrap: wrap-reverse;
 }
 
 section.question-box,
 section.diamond-box {
-	display: inline-block;
-	/*-- TESTING BORDER 
+	/*-- TESTING BORDER
 	border: 1px solid brown; --*/
 	vertical-align: top;
-	padding: 15px 20px;
-	margin: 0 20px;
+	margin: 0 auto;
+	width: 100%
+}
+
+section.diamond-box > img {
+	max-height: 155px;
+}
+
+section.diamond-box p {
+	font-size: .75em;
 }
 
 section.question-box {
 	text-align: left;
-	width: 375px;
+}
+
+.question-container {
+	width: 95%;
+	margin: 15px auto;
 }
 
 .question-count {
 	color: white;
 	padding: 8px;
 	border-radius: 50%;
-	width: 35px;
-	height: 35px;
 	border: solid black 1px;
 	background-color: black;
-	margin-left: -50px;
+	display: inline-block;
+	float: left;
+	margin: 0 10px;
+}
+
+.question {
+}
+
+.answers {
+	text-align: center;
+	padding-left: 0;
 }
 
 .answers > li {
 	margin-top: 1.5em;
 	list-style: none;
+}
+
+.answers input[type=radio] {
+	display: none;
+}
+
+.answers input[type=radio]:checked + label {
+	color: red;
+}
+
+.answers label:hover {
+	color: gold;
+}
+
+.swing {
+	padding: 10px;
+	width: 100%;
+	text-align: center;
+	background-color: grey;
 }
 
 button {
@@ -78,15 +120,15 @@ button:focus {
 }
 
 footer {
-	height: 125px;
+	height: 60px;
 	width: 100%;
 	background-color: #749E4D;
 	color: white;
-	position: absolute;
+	position: relative;
 	bottom: 0;
 }
 
 footer h5 {
-	bottom: -45px;
+	bottom: 0;
 	position: relative;
 }

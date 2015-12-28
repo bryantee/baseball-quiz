@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	updateQuestion();
 
-	$('button').on('click', function() {
+	$('.swing').on('click', function() {
 		evaluateAnswer();
 		updateBases();
 		questionCount++;
