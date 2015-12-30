@@ -6,8 +6,8 @@ $(document).ready(function() {
 		evaluateAnswer();
 		updateBases();
 		questionCount++;
-		updateQuestion();
 		checkWinOrLose();
+                updateQuestion();
 	});
 
 	$('ul.answers').on('click', 'li', function(event) {
