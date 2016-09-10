@@ -126,6 +126,11 @@ function updateQuestion () {
 	label3.empty().append(questionsArray[questionCount].answers[2]);
 	label4.empty().append(questionsArray[questionCount].answers[3]);
 
+	// Remove selection of previous answer so clean slate
+	var prevAnswer = $("input[type='radio']:checked");
+	prevAnswer.prop('checked', false);
+	prevAnswer.parent().css('border-color', 'black');
+
 	// append fact
 	if (questionCount > 0) {
 		factoid.empty().append(questionsArray[questionCount - 1].fact);
