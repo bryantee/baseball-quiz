@@ -13,9 +13,10 @@ $(document).ready(function() {
 	$('ul.answers').on('click', 'li', function(event) {
 		event.stopPropagation();
 		var li = $(this);
-		console.log(li);
-		li.find('input')[0].click();
-	})
+		li.find('input')[0].click();+
+		li.siblings().css('border-color', 'black');
+		li.css('border-color', 'red');
+	});
 
 }); // End Ready
 
