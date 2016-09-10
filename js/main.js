@@ -10,6 +10,13 @@ $(document).ready(function() {
 		checkWinOrLose();
 	});
 
+	$('ul.answers').on('click', 'li', function(event) {
+		event.stopPropagation();
+		var li = $(this);
+		console.log(li);
+		li.find('input')[0].click();
+	})
+
 }); // End Ready
 
 ////////////////////////////////////

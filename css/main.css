@@ -82,6 +82,12 @@ section.question-box {
 .answers > li {
 	margin-top: 1.5em;
 	list-style: none;
+	border: 2px solid black;
+	padding: 5px;
+	max-width: 80%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	padding: 10px;
 }
 
 .answers input[type=radio] {
