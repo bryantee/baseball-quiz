@@ -15,7 +15,7 @@ $(document).ready(function() {
 		var li = $(this);
 		li.find('input')[0].click();+
 		li.siblings().css('border-color', 'black');
-		li.css('border-color', 'red');
+		li.css('border-color', selectColor);
 	});
 
 }); // End Ready
@@ -29,6 +29,7 @@ var outs = 0;
 var questionCount = 0;
 var questionsArray = '';
 var DEBUG_MODE = true;
+var selectColor = 'white';
 
 // Question class constructor
 
