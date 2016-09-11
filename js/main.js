@@ -4,10 +4,10 @@ $(document).ready(function() {
 
 	$('.swing').on('click', function() {
 		evaluateAnswer();
+		checkWinOrLose();
 		updateBases();
 		questionCount++;
 		updateQuestion();
-		checkWinOrLose();
 	});
 
 	$('ul.answers').on('click', 'li', function(event) {
