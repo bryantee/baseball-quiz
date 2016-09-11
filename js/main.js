@@ -153,7 +153,7 @@ function checkWinOrLose () {
 		});
 	} else if (outs == 3) {
 		console.log('Inning Over!');
-		$('.header').empty().append('<h1>Inning Over! You Lose...</h1> <span><button class="new-game">New Game</button>');
+		$('.header').empty().append('<h1>Inning Over!</h1> <span><button class="new-game">New Game</button>');
 		$('.new-game').on('click', function() {
 			console.log('New game button clicked') //sanity check
 			newGame();
@@ -174,4 +174,5 @@ function newGame () {
 	$('.header').empty().append('<h1>Play Ball!</h1>')
 	$('.hits').empty().append('0');
 	$('.outs').empty().append('0');
+	$('.fact').empty();
 };
