@@ -30,6 +30,8 @@ var questionCount = 0;
 var questionsArray = '';
 var DEBUG_MODE = true;
 var selectColor = 'white';
+var hitSound = new Audio('sounds/bat+hit+ball.mp3');
+var strikeSound = new Audio('sounds/caughtball.mp3');
 
 // Question class constructor
 
@@ -64,6 +66,7 @@ function evaluateAnswer (answer) {
 	if (answer == questionsArray[questionCount].correctAnswer) {
 		hits++;
 		$('.hits').empty().append(hits);
+		hitSound.play(); // Play crack-of-da-bat sound
 		// placeholder for changing bases image
 		if (DEBUG_MODE == true) {
 			console.log("Correct!");
@@ -73,6 +76,7 @@ function evaluateAnswer (answer) {
 	} else {
 		outs++;
 		$('.outs').empty().append(outs);
+		strikeSound.play(); // Strike sound, ball hitting glove :(
 		if (DEBUG_MODE == true) {
 			console.log("Got an out.");
 			console.log("Out # " + outs);
