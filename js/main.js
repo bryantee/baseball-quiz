@@ -2,18 +2,21 @@ $(document).ready(function() {
 
 	updateQuestion();
 
-	$('button').on('click', function() {
+	$('.swing').on('click', function() {
 		evaluateAnswer();
+		checkWinOrLose();
 		updateBases();
 		questionCount++;
 		updateQuestion();
-		checkWinOrLose();
 	});
 
-	$('.new-game').on('click', function() {
-		newGame();
+	$('ul.answers').on('click', 'li', function(event) {
+		event.stopPropagation();
+		var li = $(this);
+		li.find('input')[0].click();+
+		li.siblings().css('border-color', 'black');
+		li.css('border-color', selectColor);
 	});
-
 
 }); // End Ready
 
@@ -26,6 +29,9 @@ var outs = 0;
 var questionCount = 0;
 var questionsArray = '';
 var DEBUG_MODE = true;
+var selectColor = 'white';
+var hitSound = new Audio('sounds/bat+hit+ball.mp3');
+var strikeSound = new Audio('sounds/caughtball.mp3');
 
 // Question class constructor
 
@@ -60,15 +66,17 @@ function evaluateAnswer (answer) {
 	if (answer == questionsArray[questionCount].correctAnswer) {
 		hits++;
 		$('.hits').empty().append(hits);
+		hitSound.play(); // Play crack-of-da-bat sound
 		// placeholder for changing bases image
 		if (DEBUG_MODE == true) {
 			console.log("Correct!");
 			console.log("current hits: " + hits);
 			} //end debug
-		
+
 	} else {
 		outs++;
 		$('.outs').empty().append(outs);
+		strikeSound.play(); // Strike sound, ball hitting glove :(
 		if (DEBUG_MODE == true) {
 			console.log("Got an out.");
 			console.log("Out # " + outs);
@@ -88,7 +96,7 @@ function updateBases () {
 		case 2:
 			image.attr("src", "images/2hit.png");
 			break;
-		case 3: 
+		case 3:
 			image.attr("src", "images/3hit.png");
 			break;
 		case 4:
@@ -108,7 +116,7 @@ function updateQuestion () {
 	var label3 = $('#label3');
 	var label4 = $('#label4');
 	var qmsg = $('.question');
-	var qcount = $('.question-count'); 
+	var qcount = $('.question-count');
 	var factoid = $('.fact');
 
 	// append count
@@ -123,6 +131,11 @@ function updateQuestion () {
 	label3.empty().append(questionsArray[questionCount].answers[2]);
 	label4.empty().append(questionsArray[questionCount].answers[3]);
 
+	// Remove selection of previous answer so clean slate
+	var prevAnswer = $("input[type='radio']:checked");
+	prevAnswer.prop('checked', false);
+	prevAnswer.parent().css('border-color', 'black');
+
 	// append fact
 	if (questionCount > 0) {
 		factoid.empty().append(questionsArray[questionCount - 1].fact);
@@ -130,13 +143,21 @@ function updateQuestion () {
 };
 
 function checkWinOrLose () {
-	// self explanatory 
+	// self explanatory
 	if (hits == 4) {
 		console.log('WIN!');
 		$('.header').empty().append('<h1>You Win the Game!</h1> <span><button class="new-game">New Game</button>');
+		$('.new-game').on('click', function() {
+			console.log('New game button clicked') //sanity check
+			newGame();
+		});
 	} else if (outs == 3) {
 		console.log('Inning Over!');
-		$('.header').empty().append('<h1>Inning Over! You Lose...</h1> <span><button class="new-game">New Game</button>');
+		$('.header').empty().append('<h1>Inning Over!</h1> <span><button class="new-game">New Game</button>');
+		$('.new-game').on('click', function() {
+			console.log('New game button clicked') //sanity check
+			newGame();
+		});
 	} else {
 		console.log('Keep Going');
 	}
@@ -144,8 +165,14 @@ function checkWinOrLose () {
 
 function newGame () {
 	// resets game, not working.
+	console.log('function newGame called...')
 	hits = 0;
 	outs = 0;
 	questionCount = 0;
+	updateQuestion();
 	updateBases();
+	$('.header').empty().append('<h1>Play Ball!</h1>')
+	$('.hits').empty().append('0');
+	$('.outs').empty().append('0');
+	$('.fact').empty();
 };
