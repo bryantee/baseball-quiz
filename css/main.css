@@ -3,62 +3,125 @@ body {
 	background-color: #C2B280;
 	padding: 0;
 	margin: 0;
+	line-height: 1.2em;
 
 }
 
 .content {
-	width: 1200px;
+	width: 100%;
 	margin: 0 auto;
 	text-align: center;
+	font-size: 0.75em;
+	display: -webkit-flex;
+	flex-wrap: wrap-reverse;
 }
 
 .header {
 	text-align: center;
 	width: 100%;
-	padding: 15px 0;
+	padding: 5px 0;
 	background-color: #749E4D;
 	color: white;
-	font-size: 1.5em;
+	font-size: 1.2em;
 }
 
 .fact {
 	text-align: center;
-	padding: 25px;
-}
-
-.main {
-	margin-top: 25px;
+	padding: 10px;
+	font-size: .75em;
 }
 
 section.question-box,
 section.diamond-box {
-	display: inline-block;
-	/*-- TESTING BORDER 
+	/*-- TESTING BORDER
 	border: 1px solid brown; --*/
 	vertical-align: top;
-	padding: 15px 20px;
-	margin: 0 20px;
+	margin: 0 auto;
+	width: 100%
+}
+
+section.diamond-box > img {
+	max-height: 100%;
+}
+
+section.diamond-box p {
+	font-size: .75em;
 }
 
 section.question-box {
 	text-align: left;
-	width: 375px;
+}
+
+section.diamond-box {
+	display: flex;
+	flex-wrap: nowrap;
+	padding: 5px;
+	height: 15vh;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.score {
+	font-size: 1.2em;
+}
+
+.question-container {
+	width: 95%;
+	margin: 15px auto;
+	display: inline-flex;
+	align-items: flex-start;
 }
 
 .question-count {
 	color: white;
 	padding: 8px;
 	border-radius: 50%;
-	width: 35px;
-	height: 35px;
 	border: solid black 1px;
 	background-color: black;
-	margin-left: -50px;
+	display: inline-block;
+	float: left;
+	margin: 0 10px;
+}
+
+.question {
+
+}
+
+.answers {
+	text-align: center;
+	padding-left: 0;
 }
 
 .answers > li {
 	margin-top: 1.5em;
 	list-style: none;
+	border: 2px solid black;
+	padding: 5px;
+	max-width: 80%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.answers input[type=radio] {
+	display: none;
+}
+
+.answers input[type=radio]:checked + label {
+	color: white;
+}
+
+.answers label:hover {
+	color: gold;
+}
+
+.swing {
+	padding: 10px;
+	width: 80%;
+	text-align: center;
+	background-color: grey;
+	margin: inherit;
+	border: 2px solid black;
 }
 
 button {
@@ -66,7 +129,6 @@ button {
 	padding: 10px;
 	border-radius: 5px;
 	box-shadow: 3px 3px 4px 2.5px #749E4D;
-	margin-top: 2em;
 }
 
 button:hover {
@@ -78,15 +140,79 @@ button:focus {
 }
 
 footer {
-	height: 125px;
+	height: 60px;
 	width: 100%;
 	background-color: #749E4D;
 	color: white;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 }
 
 footer h5 {
-	bottom: -45px;
-	position: relative;
+	bottom: 0;
+	text-align: center;
+}
+
+/*	Mobile First -- but what if screen is larger? Got it covered	*/
+
+@media (min-width: 680px) {
+
+	.fact {
+		padding: 25px;
+	}
+
+	section.diamond-box {
+		height: 25vh;
+		justify-content: center;
+	}
+	.score {
+		padding-left: 50px;
+		font-size: 1.5em;
+	}
+	.question-container {
+		display: block;
+		margin: 25px auto;
+
+	}
+}
+
+@media (min-width: 800px) {
+
+	.header {
+		font-size: 1.75em;
+		padding: 20px 0;
+	}
+
+	.fact {
+		font-size: 1.05em;
+	}
+
+	.content {
+		max-width: 1000px;
+		flex-wrap: initial;
+		margin-top: 35px;
+		font-size: .95em;
+	}
+
+	.swing:hover {
+		transform: scale(1.1);
+	}
+
+	section.diamond-box {
+		flex-direction: column;
+		height: auto;
+	}
+
+	section.diamond-box > img {
+		margin-top: 30px
+	}
+
+	.score {
+		padding: 10px;
+	}
+
+	footer {
+		min-height: 60px;
+		padding: 25px;
+	}
 }
